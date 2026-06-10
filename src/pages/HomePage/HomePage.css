@@ -1,0 +1,11 @@
+.home-page__content {
+  position: relative;
+  margin-top: -120px;
+  z-index: var(--cv-z-base);
+}
+
+@media (max-width: 768px) {
+  .home-page__content {
+    margin-top: -80px;
+  }
+}

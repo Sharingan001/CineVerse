@@ -1,0 +1,228 @@
+.booking-page {
+  min-height: 100vh;
+  position: relative;
+  background-color: var(--cv-bg);
+  padding-top: 80px;
+}
+
+.booking-page__background {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-position: center;
+  z-index: 0;
+}
+
+.booking-page__overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(20, 20, 20, 0.85);
+  backdrop-filter: blur(10px);
+}
+
+.booking-page__content {
+  position: relative;
+  z-index: 10;
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 40px 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.booking-page__back {
+  align-self: flex-start;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--cv-text-primary);
+  font-size: 16px;
+  margin-bottom: 24px;
+  opacity: 0.8;
+  transition: opacity var(--cv-transition-fast);
+}
+
+.booking-page__back:hover {
+  opacity: 1;
+}
+
+.booking-page__info {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.booking-page__info h1 {
+  font-size: 36px;
+  margin-bottom: 8px;
+}
+
+.booking-page__info p {
+  color: var(--cv-text-secondary);
+}
+
+.booking-page__theater {
+  width: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  border-radius: var(--cv-radius-lg);
+  padding: 40px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 40px;
+}
+
+.booking-page__screen {
+  width: 80%;
+  height: 60px;
+  background: linear-gradient(to bottom, rgba(255, 255, 255, 0.2), transparent);
+  border-top: 4px solid var(--cv-text-primary);
+  border-radius: 50% 50% 0 0 / 20px 20px 0 0;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  padding-top: 10px;
+  color: var(--cv-text-secondary);
+  font-weight: bold;
+  letter-spacing: 4px;
+  margin-bottom: 60px;
+  box-shadow: 0 -20px 40px rgba(255, 255, 255, 0.1);
+}
+
+.booking-page__seats {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.booking-page__seat-row {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.booking-page__row-label {
+  width: 24px;
+  text-align: center;
+  color: var(--cv-text-secondary);
+  font-size: 14px;
+}
+
+.booking-page__seat-group {
+  display: flex;
+  gap: 10px;
+}
+
+.booking-page__seat {
+  width: 36px;
+  height: 36px;
+  border-radius: 8px 8px 4px 4px;
+  background-color: var(--cv-surface-hover);
+  border: 1px solid var(--cv-border-light);
+  transition: all var(--cv-transition-fast);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.booking-page__seat:hover:not(.booking-page__seat--occupied) {
+  background-color: var(--cv-text-secondary);
+  transform: scale(1.1);
+}
+
+.booking-page__seat--selected {
+  background-color: var(--cv-red);
+  border-color: var(--cv-red-hover);
+}
+
+.booking-page__seat--selected:hover {
+  background-color: var(--cv-red-hover);
+}
+
+.booking-page__seat-icon {
+  color: white;
+  font-size: 18px;
+}
+
+.booking-page__seat--occupied {
+  background-color: #222;
+  border-color: #111;
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.booking-page__legend {
+  display: flex;
+  gap: 24px;
+  margin-top: 40px;
+}
+
+.booking-page__legend-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--cv-text-secondary);
+  font-size: 14px;
+}
+
+.booking-page__legend-item .booking-page__seat {
+  width: 24px;
+  height: 24px;
+  cursor: default;
+}
+
+.booking-page__summary {
+  width: 100%;
+  background: var(--cv-card);
+  border-radius: var(--cv-radius-md);
+  padding: 30px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border: 1px solid var(--cv-border);
+  animation: fadeInUp var(--cv-transition-base);
+}
+
+.booking-page__summary-details h3 {
+  margin-bottom: 12px;
+}
+
+.booking-page__summary-details p {
+  color: var(--cv-text-secondary);
+  margin-bottom: 4px;
+}
+
+.booking-page__checkout-btn {
+  background-color: var(--cv-red);
+  color: white;
+  padding: 16px 32px;
+  font-size: 18px;
+  font-weight: 600;
+  border-radius: var(--cv-radius-md);
+  transition: background-color var(--cv-transition-fast);
+}
+
+.booking-page__checkout-btn:hover {
+  background-color: var(--cv-red-hover);
+}
+
+@media (max-width: 768px) {
+  .booking-page__seat {
+    width: 28px;
+    height: 28px;
+  }
+  .booking-page__summary {
+    flex-direction: column;
+    gap: 20px;
+    text-align: center;
+  }
+  .booking-page__checkout-btn {
+    width: 100%;
+  }
+}

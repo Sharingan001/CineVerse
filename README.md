@@ -28,7 +28,9 @@ CineVerse/
 ├── day1/          # Day 1 — Core UI & Component Architecture (React)
 ├── day2/          # Day 2 — Auth, Routing, Booking, 3D & API Layer (React)
 ├── day3/          # Day 3 — Authentication Service (Spring Boot Backend)
-└── day4/          # Day 4 — API Gateway (Spring Cloud Gateway)
+├── day4/          # Day 4 — API Gateway (Spring Cloud Gateway)
+├── day5/          # Day 5 — Movie Catalog Service (Spring Boot + MongoDB)
+└── day6/          # Day 6 — Booking Service (Spring Boot + PostgreSQL)
 ```
 
 Each folder is a **self-contained React + Vite project** that can be run independently.
@@ -169,6 +171,46 @@ src/
 | Spring WebFlux | Non-blocking reactive programming |
 | WebClient | Asynchronous inter-service HTTP calls |
 | Eureka (Optional) | Service discovery |
+
+---
+
+## 🗓️ Day 5 — Movie Catalog Service
+
+> The data-heavy service responsible for managing the platform's movies, optimized for fast reads and flexible schemas using MongoDB.
+
+### Features
+- 🗄️ **NoSQL Document Storage** — Uses MongoDB for flexible, high-performance data modeling
+- 🔎 **Search & Filtering** — Efficient retrieval of movies by title, genre, and ratings
+- 📄 **Pagination & Sorting** — Handles large datasets with optimized queries
+- ⭐️ **Reviews & Ratings** — User feedback aggregation system
+- 🖼️ **Media Upload Handling** — Configured for handling poster and image uploads
+
+### Tech Stack
+| Tech | Purpose |
+|------|---------|
+| Spring Boot 3 | Backend framework |
+| MongoDB | NoSQL Document database |
+| Spring Data MongoDB | Repository abstraction & MongoTemplate |
+
+---
+
+## 🗓️ Day 6 — Booking Service & Seat Management
+
+> The transaction-critical service responsible for handling theatre creation, scheduling shows, and preventing double-bookings.
+
+### Features
+- 🏗️ **Theatre & Screen Modeling** — Hierarchical data models for locations, theatres, and screens (audis)
+- 💺 **Seat Layouts & Status** — 2D grid representations for seat selection and dynamic pricing
+- ⏱️ **Concurrency Control** — Optimistic/Pessimistic and temporary locking mechanisms to prevent double-bookings
+- 📅 **Show Scheduling** — Manages time slots and prevents overlapping shows
+- 🔄 **State Machine Workflow** — Manages booking lifecycle (INITIATED, LOCKED, CONFIRMED, CANCELLED)
+
+### Tech Stack
+| Tech | Purpose |
+|------|---------|
+| Spring Boot 3 | Backend framework |
+| PostgreSQL | Relational database for strong consistency |
+| Spring Data JPA | ORM and transactional locking |
 
 ---
 

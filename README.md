@@ -241,18 +241,31 @@ src/
 git clone https://github.com/Sharingan001/CineVerse.git
 cd CineVerse
 
-# Run Day 1
-cd day1
-npm install
-npm run dev
-
-# Or run Day 2 (recommended — includes all features)
+### 🖥️ Frontend Setup (Day 2)
 cd day2
 npm install
 npm run dev
-```
+# Open http://localhost:5173 in your browser
 
-Open [http://localhost:5173](http://localhost:5173) in your browser.
+### ⚙️ Backend Setup (Days 3-7)
+# Prerequisites: Ensure PostgreSQL (5432), MongoDB (27017), and Redis (6379) are running locally.
+
+# 1. Start Auth Service (Port 8081)
+cd day3/auth-service
+./gradlew bootRun
+
+# 2. Start Movie Service (Port 8082)
+cd ../../day5/movie-service
+./gradlew bootRun
+
+# 3. Start Booking Service with Redis (Port 8083)
+cd ../../day7/booking-service-redis
+./gradlew bootRun
+
+# 4. Start API Gateway (Port 8080)
+cd ../../day4/api-gateway
+./gradlew bootRun
+```
 
 ---
 

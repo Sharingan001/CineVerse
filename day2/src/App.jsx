@@ -3,8 +3,7 @@ import { AuthProvider } from './context/AuthContext';
 import AppRoutes from './routes/AppRoutes';
 import Navbar from './components/Navbar/Navbar';
 import Footer from './components/Footer/Footer';
-import ThreeBackground from './components/ThreeBackground/ThreeBackground';
-import { useState, useCallback, Suspense } from 'react';
+import { useState, useCallback } from 'react';
 
 function AppContent() {
   const [searchQuery, setSearchQuery] = useState('');
@@ -17,9 +16,6 @@ function AppContent() {
 
   return (
     <>
-      <Suspense fallback={null}>
-        <ThreeBackground />
-      </Suspense>
       {!isLoginPage && <Navbar onSearch={handleSearch} />}
       <main>
         <AppRoutes searchQuery={searchQuery} />

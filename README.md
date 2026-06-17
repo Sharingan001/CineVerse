@@ -30,7 +30,8 @@ CineVerse/
 ├── day3/          # Day 3 — Authentication Service (Spring Boot Backend)
 ├── day4/          # Day 4 — API Gateway (Spring Cloud Gateway)
 ├── day5/          # Day 5 — Movie Catalog Service (Spring Boot + MongoDB)
-└── day6/          # Day 6 — Booking Service (Spring Boot + PostgreSQL)
+├── day6/          # Day 6 — Booking Service (Spring Boot + PostgreSQL)
+└── day7/          # Day 7 — Redis Caching & Seat Locking (Booking Service Update)
 ```
 
 Each folder is a **self-contained React + Vite project** that can be run independently.
@@ -211,6 +212,25 @@ src/
 | Spring Boot 3 | Backend framework |
 | PostgreSQL | Relational database for strong consistency |
 | Spring Data JPA | ORM and transactional locking |
+
+---
+
+## 🗓️ Day 7 — Redis Caching & Seat Locking
+
+> Introduces an in-memory data store to handle high-concurrency seat locking and optimize the overall performance of the booking system.
+
+### Features
+- ⚡ **High-Speed Caching** — Caches frequently accessed data (like seat layouts) in memory to reduce database load
+- 🔒 **Distributed Seat Locking** — Temporarily reserves seats upon selection to prevent double-booking race conditions
+- ⏳ **TTL (Time-To-Live)** — Uses automatic expiration for seat locks (e.g., 5-minute holds before release)
+- 🚀 **Optimized Read Performance** — Employs a Cache-Aside strategy for fetching show and theatre data
+
+### Tech Stack
+| Tech | Purpose |
+|------|---------|
+| Spring Boot 3 | Backend framework |
+| Redis | In-memory data store for caching and locking |
+| Spring Data Redis | Redis integration and template operations |
 
 ---
 

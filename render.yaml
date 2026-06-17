@@ -3,8 +3,7 @@ services:
   - type: web
     name: api-gateway
     env: docker
-    dockerContext: ./day4/api-gateway
-    dockerfilePath: ./day4/api-gateway/Dockerfile
+    dockerContext: day4/api-gateway
     plan: free
     envVars:
       - key: PORT
@@ -14,8 +13,7 @@ services:
   - type: web
     name: auth-service
     env: docker
-    dockerContext: ./day3/auth-service
-    dockerfilePath: ./day3/auth-service/Dockerfile
+    dockerContext: day3/auth-service
     plan: free
     envVars:
       - key: PORT
@@ -37,8 +35,7 @@ services:
   - type: web
     name: movie-service
     env: docker
-    dockerContext: ./day5/movie-service
-    dockerfilePath: ./day5/movie-service/Dockerfile
+    dockerContext: day5/movie-service
     plan: free
     envVars:
       - key: PORT
@@ -50,8 +47,7 @@ services:
   - type: web
     name: booking-service
     env: docker
-    dockerContext: ./day7/booking-service-redis
-    dockerfilePath: ./day7/booking-service-redis/Dockerfile
+    dockerContext: day7/booking-service-redis
     plan: free
     envVars:
       - key: PORT

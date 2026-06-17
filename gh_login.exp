@@ -1,6 +1,0 @@
-#!/usr/bin/expect -f
-set timeout -1
-spawn ./gh_2.51.0_linux_amd64/bin/gh auth login --hostname github.com -p https -w
-expect "Authenticate Git with your GitHub credentials?"
-send "Y\r"
-expect eof

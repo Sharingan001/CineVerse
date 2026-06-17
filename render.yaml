@@ -20,10 +20,6 @@ services:
     envVars:
       - key: PORT
         value: 8081
-      - key: SPRING_DATASOURCE_URL
-        fromDatabase:
-          name: cineverse-db
-          property: connectionString
       - key: SPRING_DATASOURCE_USERNAME
         fromDatabase:
           name: cineverse-db
@@ -32,6 +28,18 @@ services:
         fromDatabase:
           name: cineverse-db
           property: password
+      - key: DB_HOST
+        fromDatabase:
+          name: cineverse-db
+          property: host
+      - key: DB_PORT
+        fromDatabase:
+          name: cineverse-db
+          property: port
+      - key: DB_NAME
+        fromDatabase:
+          name: cineverse-db
+          property: database
 
   # 3. Movie Service
   - type: web

@@ -2,8 +2,9 @@ services:
   # 1. API Gateway
   - type: web
     name: api-gateway
-    env: docker
+    runtime: docker
     dockerContext: day4/api-gateway
+    dockerfilePath: day4/api-gateway/Dockerfile
     plan: free
     envVars:
       - key: PORT
@@ -12,8 +13,9 @@ services:
   # 2. Auth Service
   - type: web
     name: auth-service
-    env: docker
+    runtime: docker
     dockerContext: day3/auth-service
+    dockerfilePath: day3/auth-service/Dockerfile
     plan: free
     envVars:
       - key: PORT
@@ -34,8 +36,9 @@ services:
   # 3. Movie Service
   - type: web
     name: movie-service
-    env: docker
+    runtime: docker
     dockerContext: day5/movie-service
+    dockerfilePath: day5/movie-service/Dockerfile
     plan: free
     envVars:
       - key: PORT
@@ -46,8 +49,9 @@ services:
   # 4. Booking Service
   - type: web
     name: booking-service
-    env: docker
+    runtime: docker
     dockerContext: day7/booking-service-redis
+    dockerfilePath: day7/booking-service-redis/Dockerfile
     plan: free
     envVars:
       - key: PORT

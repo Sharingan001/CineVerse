@@ -1,11 +1,11 @@
 # Build stage
 FROM eclipse-temurin:17-jdk-alpine AS build
 WORKDIR /app
-COPY gradlew .
-COPY gradle gradle
-COPY build.gradle .
-COPY settings.gradle .
-COPY src src
+COPY day5/movie-service/gradlew .
+COPY day5/movie-service/gradle gradle
+COPY day5/movie-service/build.gradle .
+COPY day5/movie-service/settings.gradle .
+COPY day5/movie-service/src src
 RUN chmod +x gradlew
 RUN ./gradlew build -x test
 

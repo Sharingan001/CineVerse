@@ -1,11 +1,11 @@
 # Build stage
 FROM eclipse-temurin:17-jdk-alpine AS build
 WORKDIR /app
-COPY gradlew .
-COPY gradle gradle
-COPY build.gradle .
-COPY settings.gradle .
-COPY src src
+COPY day7/booking-service-redis/gradlew .
+COPY day7/booking-service-redis/gradle gradle
+COPY day7/booking-service-redis/build.gradle .
+COPY day7/booking-service-redis/settings.gradle .
+COPY day7/booking-service-redis/src src
 RUN chmod +x gradlew
 RUN ./gradlew build -x test
 

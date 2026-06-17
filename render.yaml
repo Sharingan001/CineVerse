@@ -3,7 +3,7 @@ services:
   - type: web
     name: api-gateway
     runtime: docker
-    dockerContext: day4/api-gateway
+    dockerContext: .
     dockerfilePath: day4/api-gateway/Dockerfile
     plan: free
     envVars:
@@ -14,7 +14,7 @@ services:
   - type: web
     name: auth-service
     runtime: docker
-    dockerContext: day3/auth-service
+    dockerContext: .
     dockerfilePath: day3/auth-service/Dockerfile
     plan: free
     envVars:
@@ -37,7 +37,7 @@ services:
   - type: web
     name: movie-service
     runtime: docker
-    dockerContext: day5/movie-service
+    dockerContext: .
     dockerfilePath: day5/movie-service/Dockerfile
     plan: free
     envVars:
@@ -50,7 +50,7 @@ services:
   - type: web
     name: booking-service
     runtime: docker
-    dockerContext: day7/booking-service-redis
+    dockerContext: .
     dockerfilePath: day7/booking-service-redis/Dockerfile
     plan: free
     envVars:

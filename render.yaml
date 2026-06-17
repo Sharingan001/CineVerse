@@ -1,0 +1,81 @@
+services:
+  # 1. API Gateway
+  - type: web
+    name: api-gateway
+    env: docker
+    dockerContext: day4/api-gateway
+    dockerfilePath: ./Dockerfile
+    plan: free
+    envVars:
+      - key: PORT
+        value: 8080
+
+  # 2. Auth Service
+  - type: web
+    name: auth-service
+    env: docker
+    dockerContext: day3/auth-service
+    dockerfilePath: ./Dockerfile
+    plan: free
+    envVars:
+      - key: PORT
+        value: 8081
+      - key: SPRING_DATASOURCE_URL
+        fromDatabase:
+          name: cineverse-db
+          property: connectionString
+      - key: SPRING_DATASOURCE_USERNAME
+        fromDatabase:
+          name: cineverse-db
+          property: user
+      - key: SPRING_DATASOURCE_PASSWORD
+        fromDatabase:
+          name: cineverse-db
+          property: password
+
+  # 3. Movie Service
+  - type: web
+    name: movie-service
+    env: docker
+    dockerContext: day5/movie-service
+    dockerfilePath: ./Dockerfile
+    plan: free
+    envVars:
+      - key: PORT
+        value: 8082
+      - key: SPRING_DATA_MONGODB_URI
+        sync: false # You must set this manually in Render dashboard from MongoDB Atlas
+
+  # 4. Booking Service
+  - type: web
+    name: booking-service
+    env: docker
+    dockerContext: day7/booking-service-redis
+    dockerfilePath: ./Dockerfile
+    plan: free
+    envVars:
+      - key: PORT
+        value: 8083
+      - key: SPRING_DATA_REDIS_HOST
+        fromService:
+          type: redis
+          name: cineverse-redis
+          property: host
+      - key: SPRING_DATA_REDIS_PORT
+        fromService:
+          type: redis
+          name: cineverse-redis
+          property: port
+
+databases:
+  # PostgreSQL Database
+  - name: cineverse-db
+    databaseName: cineverse
+    user: render
+    plan: free
+
+  # Redis Instance
+  - type: redis
+    name: cineverse-redis
+    plan: free
+    ipAllowList: [] # Allows internal connections

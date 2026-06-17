@@ -1,7 +1,8 @@
 import axios from 'axios';
 
 const api = axios.create({
-  baseURL: 'http://localhost:5000/api', // Mock backend URL
+  // Use VITE_API_URL from Vercel/Render, fallback to local Gateway port 8080
+  baseURL: import.meta.env.VITE_API_URL || 'http://localhost:8080/api',
   timeout: 5000,
   headers: {
     'Content-Type': 'application/json'
